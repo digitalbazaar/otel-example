@@ -1,19 +1,19 @@
 import {diag, DiagConsoleLogger, DiagLogLevel} from '@opentelemetry/api';
-import {BatchSpanProcessor} from '@opentelemetry/sdk-trace-base';
+import {ConsoleSpanExporter} from '@opentelemetry/sdk-trace-base';
 import {NodeSDK} from '@opentelemetry/sdk-node';
-import {TraceExporter} from '@google-cloud/opentelemetry-cloud-trace-exporter';
 import {UndiciInstrumentation} from '@opentelemetry/instrumentation-undici';
+import fetch from 'node-fetch';
 
 // For troubleshooting, set the log level to DiagLogLevel.DEBUG / INFO
 diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
 
-// Initialize the exporter. When your application is running on Google Cloud,
-// you don't need to provide auth credentials or a project id.
-const exporter = new TraceExporter();
-
 const sdk = new NodeSDK({
-  traceExporter: new BatchSpanProcessor(exporter),
+  traceExporter: new ConsoleSpanExporter(),
   instrumentations: [new UndiciInstrumentation()],
 });
 
 sdk.start();
+
+const response = await fetch('https://github.com/');
+const body = await response.text();
+// console.log(body);
