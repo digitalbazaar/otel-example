@@ -1,12 +1,6 @@
-// import {
-//   ConsoleSpanExporter,
-//   NodeTracerProvider,
-//   SimpleSpanProcessor,
-// } from '@opentelemetry/sdk-trace-node';
 import {diag, DiagConsoleLogger, DiagLogLevel} from '@opentelemetry/api';
 import {BatchSpanProcessor} from '@opentelemetry/sdk-trace-base';
 import {NodeSDK} from '@opentelemetry/sdk-node';
-// import {registerInstrumentations} from '@opentelemetry/instrumentation';
 import {TraceExporter} from '@google-cloud/opentelemetry-cloud-trace-exporter';
 import {UndiciInstrumentation} from '@opentelemetry/instrumentation-undici';
 
