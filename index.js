@@ -2,7 +2,6 @@ import {diag, DiagConsoleLogger, DiagLogLevel} from '@opentelemetry/api';
 import {ConsoleSpanExporter} from '@opentelemetry/sdk-trace-base';
 import {NodeSDK} from '@opentelemetry/sdk-node';
 import {UndiciInstrumentation} from '@opentelemetry/instrumentation-undici';
-import fetch from 'node-fetch';
 
 // For troubleshooting, set the log level to DiagLogLevel.DEBUG / INFO
 diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
