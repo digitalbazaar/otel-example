@@ -3,8 +3,6 @@ import { Resource } from '@opentelemetry/resources'
 import { SEMRESATTRS_SERVICE_NAME } from '@opentelemetry/semantic-conventions'
 import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base'
 import { NodeSDK } from '@opentelemetry/sdk-node'
-import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node'
-import { registerInstrumentations } from '@opentelemetry/instrumentation'
 import { UndiciInstrumentation } from '@opentelemetry/instrumentation-undici'
 
 // For troubleshooting, set the log level to DiagLogLevel.DEBUG / INFO
